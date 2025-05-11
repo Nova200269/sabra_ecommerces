@@ -1,0 +1,2823 @@
+{
+	"info": {
+		"_postman_id": "f5e0f352-5c89-461a-8eea-5fbc1681b02f",
+		"name": "APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15458815",
+		"_collection_link": "https://red-astronaut-522451.postman.co/workspace/Ecommerce~4d9f879d-8d7f-4c43-9153-5e05f29876e2/collection/15458815-f5e0f352-5c89-461a-8eea-5fbc1681b02f?action=share&source=collection_link&creator=15458815"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"test\",\r\n    \"phone_number\": \"09665524411\",\r\n    \"password\": \"123456789\",\r\n    \"email\": \"sqss@gsmail.com\",\r\n    \"otp\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"123456789\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"adminss11@gmail.com\",\r\n    \"otp\": \"3561\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/forget-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"123456789\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/admin-login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"admin-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"admin\",\r\n    \"phone_number\": \"0955588844\",\r\n    \"password\": \"123456789\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/admin-signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"admin-signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sqss@gsmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/generate-otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"generate-otp"
+							]
+						},
+						"description": "This endpoint is used to generate a one-time password (OTP) for authentication via email. The HTTP POST request should be made to {{base_url}}/auth/generate-otp with a payload containing the email address.\n\n### Request Body\n\n- email (text, required): The email address for which the OTP needs to be generated.\n    \n\n### Response\n\nUpon successful execution, the server will respond with a status code of 200 and a JSON object containing the generated OTP details, including the email, code, _id, createdAt, updatedAt, and __v fields.\n\nExample:\n\n``` json\n{\n    \"email\": \"\",\n    \"code\": \"\",\n    \"_id\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\",\n    \"__v\": 0\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Regenerate Otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"obada.almaleh.engineer@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/regenerate-otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"regenerate-otp"
+							]
+						},
+						"description": "This endpoint is used to generate a one-time password (OTP) for authentication via email. The HTTP POST request should be made to {{base_url}}/auth/generate-otp with a payload containing the email address.\n\n### Request Body\n\n- email (text, required): The email address for which the OTP needs to be generated.\n    \n\n### Response\n\nUpon successful execution, the server will respond with a status code of 200 and a JSON object containing the generated OTP details, including the email, code, _id, createdAt, updatedAt, and __v fields.\n\nExample:\n\n``` json\n{\n    \"email\": \"\",\n    \"code\": \"\",\n    \"_id\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\",\n    \"__v\": 0\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Get product of category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/analysis/category-product-count",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis",
+								"category-product-count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product of brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/analysis/brand-product-count",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis",
+								"brand-product-count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get counts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/analysis/total-numbers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis",
+								"total-numbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get last added",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/analysis/last-added",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis",
+								"last-added"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brands",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brands/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65afa79a86bcf431841b4bb0"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": {{translated_value}},\n    \"image\": \"{{$randomImageUrl}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brands",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": {{translated_value}},\n    \"image\": \"{{$randomImageUrl}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brands/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands",
+								"1"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brands/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands",
+								"1"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "parent",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get category children",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/children/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"children",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65d70fce45280d304ecaa6eb"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get category props",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/property/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"property",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65dc4e4e201f8ab3358499fb"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65dc4d625294a01eeea36560"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": {{translated_value}},\n    \"cover_image\": \"{{$randomImageUrl}}\",\n    \"images\": [\"{{$randomImageUrl}}\"],\n    \"show_at_home\": true,\n    \"categories_path\":[{\"key\":\"sasdqawde\"}],\n    \"props\": [\n        {\n            \"key\": {{translated_value}},\n            \"required\": true,\n            \"values\": [{\"value\":{{translated_value}}},{\"value\":{{translated_value}}}],\n            \"type\": \"choice\" //\"choice\", \"input\"\n        },\n        {\n            \"key\": {{translated_value}},\n            \"type\": \"input\" //\"choice\", \"input\"\n        }\n    ]\n  // ,    \"parent_category\": \"65d1ea616241923fb8aa93df\" //Only set for children\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"_id\": \"65db0c3389c2a550a40d1f7f\",\n        \"name\": [\n            {\n                \"lang\": \"eng\",\n                \"value\": \"english worlds\",\n                \"_id\": \"65db0c3389c2a550a40d1f80\"\n            },\n            {\n                \"lang\": \"ar\",\n                \"value\": \"كلمات عربية\",\n                \"_id\": \"65db0c3389c2a550a40d1f81\"\n            }\n        ],\n        \"cover_image\": \"http://placeimg.com/640/480\",\n        \"images\": [\n            \"http://placeimg.csom/640/480\"\n        ],\n        \"show_at_home\": true,\n        \"props\": [\n            {\n                \"_id\": \"65db0c3389c2a550a40d1f82\",\n                \"key\": [\n                    {\n                        \"lang\": \"eng\",\n                        \"value\": \"english worlds\",\n                        \"_id\": \"65db0c3389c2a550a40d1f83\"\n                    },\n                    {\n                        \"lang\": \"ar\",\n                        \"value\": \"كلمات عربية\",\n                        \"_id\": \"65db0c3389c2a550a40d1f84\"\n                    }\n                ],\n                \"values\": [\n                    {\n                        \"value\": [\n                            {\n                                \"lang\": \"eng\",\n                                \"value\": \"english worlds\",\n                                \"_id\": \"65db0c3389c2a550a40d1f86\"\n                            },\n                            {\n                                \"lang\": \"ar\",\n                                \"value\": \"كلمات عربية\",\n                                \"_id\": \"65db0c3389c2a550a40d1f87\"\n                            }\n                        ],\n                        \"_id\": \"65db0c3389c2a550a40d1f85\"\n                    },\n                    {\n                        \"value\": [\n                            {\n                                \"lang\": \"eng\",\n                                \"value\": \"english worlds\",\n                                \"_id\": \"65db0c3389c2a550a40d1f89\"\n                            },\n                            {\n                                \"lang\": \"ar\",\n                                \"value\": \"كلمات عربية\",\n                                \"_id\": \"65db0c3389c2a550a40d1f8a\"\n                            }\n                        ],\n                        \"_id\": \"65db0c3389c2a550a40d1f88\"\n                    }\n                ],\n                \"type\": \"choice\",\n                \"required\": true,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"65db0c3389c2a550a40d1f8c\",\n                \"key\": [\n                    {\n                        \"lang\": \"eng\",\n                        \"value\": \"english worlds\",\n                        \"_id\": \"65db0c3389c2a550a40d1f8d\"\n                    },\n                    {\n                        \"lang\": \"ar\",\n                        \"value\": \"كلمات عربية\",\n                        \"_id\": \"65db0c3389c2a550a40d1f8e\"\n                    }\n                ],\n                \"type\": \"input\",\n                \"required\": false,\n                \"values\": [],\n                \"__v\": 0\n            }\n        ],\n        \"__v\": 0\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/65db0c3389c2a550a40d1f7f",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"65db0c3389c2a550a40d1f7f"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65c34ae45bbf342289e2aba3"
+								}
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home Apis",
+			"item": [
+				{
+					"name": "Get discounted products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home/discounted-products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home",
+								"discounted-products"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get most popular products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home/most-popular-products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home",
+								"most-popular-products"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get most recent products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home/most-recent-products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home",
+								"most-recent-products"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get recommended products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_navigated_prod\": [\"65e584af36476f72bedd0074\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home/recommended-products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home",
+								"recommended-products"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home images",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home-images",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-images"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home-images/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-images",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65afa79586bcf431841b4bb0"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"image\": \"https://ecommerce.ssg-tech.info/images/1707294555343.jpg\",\n    \"target_id\": \"65c8b0833fde2f5726dd2fe4\",\n    \"target_type\": \"product\" //it should be one of [\"product\", \"category\", \"brand\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home-images",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-images"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"image\": \"https://ecommerce.ssg-tech.info/images/1707134894121.jpg\",\n    \"target_id\": \"\",\n    \"target_type\": \"product\" //it should be one of [\"product\", \"category\", \"brand\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home-images/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-images",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65c9e6282c132680f4982b62"
+								}
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/home-images/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-images",
+								"1"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Upload",
+					"item": [
+						{
+							"name": "Upload image  & icon",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1eebe80c-2be3-4240-8831-311f168d3de1"
+										},
+										{
+											"key": "icon",
+											"value": "false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/media/upload-image",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"media",
+										"upload-image"
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						},
+						{
+							"name": "Upload video",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"type": "file",
+											"src": "sample-mp4-file-small.mp4"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/media/upload-video",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"media",
+										"upload-video"
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify",
+					"item": [
+						{
+							"name": "Verify image  & icon",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"value": "localhost:8080/images/1706517873659.jpg",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/media/verify-image",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"media",
+										"verify-image"
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						},
+						{
+							"name": "Verify video",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video_url",
+											"value": "localhost:8080/videos/1706517973237.mp4",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/media/verify-video",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"media",
+										"verify-video"
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65afa79586bcf431841b4bb0"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Test title",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "This is a test body",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"image\": \"https://ecommerce.ssg-tech.info/images/1707134894121.jpg\",\n    \"target_id\": \"\",\n    \"target_type\": \"product\" //it should be one of [\"product\", \"category\", \"brand\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65c9e6282c132680f4982b62"
+								}
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications",
+								"1"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [     {\r\n            \"_id\": \"65ffec022bb09ae55dc800ea\",\r\n            \"name\": [\r\n                {\r\n                    \"lang\": \"eng\",\r\n                    \"value\": \"english worlds\",\r\n                    \"_id\": \"65ffec022bb09ae55dc800eb\"\r\n                },\r\n                {\r\n                    \"lang\": \"ar\",\r\n                    \"value\": \"كلمات عربية\",\r\n                    \"_id\": \"65ffec022bb09ae55dc800ec\"\r\n                }\r\n            ],\r\n            \"price\": 879.26,\r\n            \"images\": [\r\n                \"https://ecommerce.ssg-tech.info/images/1707293918233.jpg\"\r\n            ],\r\n            \"dec\": [\r\n                {\r\n                    \"lang\": \"eng\",\r\n                    \"value\": \"english worlds\",\r\n                    \"_id\": \"65ffec022bb09ae55dc800ed\"\r\n                },\r\n                {\r\n                    \"lang\": \"ar\",\r\n                    \"value\": \"كلمات عربية\",\r\n                    \"_id\": \"65ffec022bb09ae55dc800ee\"\r\n                }\r\n            ],\r\n            \"props\": [\r\n                {\r\n                    \"key\": [\r\n                        {\r\n                            \"lang\": \"eng\",\r\n                            \"value\": \"english worlds\",\r\n                            \"_id\": \"65ffec022bb09ae55dc800ef\"\r\n                        },\r\n                        {\r\n                            \"lang\": \"ar\",\r\n                            \"value\": \"كلمات عربية\",\r\n                            \"_id\": \"65ffec022bb09ae55dc800f0\"\r\n                        }\r\n                    ],\r\n                    \"type\": \"input\",\r\n                    \"values\": [\r\n                        {\r\n                            \"value\": [\r\n                                {\r\n                                    \"lang\": \"eng\",\r\n                                    \"value\": \"english worlds\",\r\n                                    \"_id\": \"65ffec022bb09ae55dc800f3\"\r\n                                },\r\n                                {\r\n                                    \"lang\": \"ar\",\r\n                                    \"value\": \"كلمات عربية\",\r\n                                    \"_id\": \"65ffec022bb09ae55dc800f4\"\r\n                                }\r\n                            ],\r\n                            \"over_price\": 200,\r\n                            \"images\": []\r\n                        }\r\n                    ]\r\n                }\r\n            ],\r\n            \"category\": {\r\n                \"_id\": \"65d70fce45280d304ecaa6eb\",\r\n                \"name\": [\r\n                    {\r\n                        \"lang\": \"eng\",\r\n                        \"value\": \"english worlds\",\r\n                        \"_id\": \"65d70fce45280d304ecaa6ec\"\r\n                    },\r\n                    {\r\n                        \"lang\": \"ar\",\r\n                        \"value\": \"كلمات عربية\",\r\n                        \"_id\": \"65d70fce45280d304ecaa6ed\"\r\n                    }\r\n                ],\r\n                \"cover_image\": \"http://placeimg.com/640/480\",\r\n                \"images\": [\r\n                    \"http://placeimg.com/640/480\"\r\n                ],\r\n                \"show_at_home\": true,\r\n                \"props\": [\r\n                    \"65d70fce45280d304ecaa6ee\"\r\n                ],\r\n                \"__v\": 34\r\n            },\r\n            \"brand\": null,\r\n            \"id\": \"65ffec022bb09ae55dc800ea\",\r\n            \"count\": 1\r\n        }],\r\n  \"address\": \"{{$randomCountry}}\",\r\n  \"payment_method\": \"online\",\r\n  \"note\": \"{{$randomCatchPhraseDescriptor}}\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get my orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"minPrice\": 10,\r\n  \"maxPrice\": 1000,\r\n  \"category\": \"65afa7ab86bcf431841b4bb6\",\r\n  \"brand\": \"65afa96f86bcf431841b4bc0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "english",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "etwe-swws-ertw-"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": {{translated_value}},\r\n  \"price\": {{$randomPrice}},\r\n  \"images\": [\"https://ecommerce.ssg-tech.info/images/1707293918233.jpg\"],\r\n  \"dec\": {{translated_value}},\r\n  \"out_of_stack\": false,\r\n  \"categories_path\":[{\"key\":\"sasdqawde\"}],\r\n  \"key_words\": \"teswe sd et\",\r\n  \"slug\": \"etwe swws ertw \",\r\n  \"category\": \"65d70fce45280d304ecaa6eb\",\r\n  \"brand\": \"65c33c7dd10a0ccc880fea46\",\r\n  \"props\": [\r\n     {\r\n        \"key\": {{translated_value}},\r\n        \"type\": \"input\",\r\n        \"values\": [\r\n                {\r\n                \"value\":{{translated_value}},\r\n                \"images\": [\"https://www.publicdomainpictures.net/pictures/110000/nahled/3d-letter-s.jpg\"],\r\n                \"over_price\": 500\r\n                },\r\n                 {\r\n                \"value\":{{translated_value}},\r\n                \"over_price\": 200\r\n                }\r\n            ]\r\n    },\r\n       {\r\n        \"key\": {{translated_value}},\r\n        \"type\": \"input\",\r\n        \"values\": [\r\n                {\r\n                \"value\":{{translated_value}},\r\n                \"images\": [],\r\n                \"over_price\": 500\r\n                },\r\n                 {\r\n                \"value\":{{translated_value}},\r\n                \"over_price\": 2020\r\n                }\r\n            ]\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n            \"_id\": \"6602b3d10f85fdfe1d59c9ea\",\n            \"name\": [\n                {\n                    \"lang\": \"eng\",\n                    \"value\": \"english worlds\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9eb\"\n                },\n                {\n                    \"lang\": \"ar\",\n                    \"value\": \"كلمات عربية\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9ec\"\n                }\n            ],\n            \"price\": 431.02,\n            \"images\": [\n                \"https://ecommerce.ssg-tech.info/images/1707293918233.jpg\"\n            ],\n            \"dec\": [\n                {\n                    \"lang\": \"eng\",\n                    \"value\": \"english worlds\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9ed\"\n                },\n                {\n                    \"lang\": \"ar\",\n                    \"value\": \"كلمات عربية\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9ee\"\n                }\n            ],\n            \"average_rate\": 0,\n            \"rate_number\": 0,\n            \"out_of_stack\": false,\n            \"viewed\": 6,\n            \"key_words\": \"english worlds  كلمات عربية  431.02 english worlds,كلمات عربية bomomnzer ,بو منذر  english worlds,كلمات عربية,english worlds,كلمات عربية english worlds,كلمات عربية,english worlds,كلمات عربية teswe-sd-et\",\n            \"slug\": \"etwe sww ertw \",\n            \"props\": [\n                {\n                    \"key\": [\n                        {\n                            \"lang\": \"eng\",\n                            \"value\": \"english worlds\",\n                            \"_id\": \"6602b3d10f85fdfe1d59c9ef\"\n                        },\n                        {\n                            \"lang\": \"ar\",\n                            \"value\": \"كلمات عربية\",\n                            \"_id\": \"6602b3d10f85fdfe1d59c9f0\"\n                        }\n                    ],\n                    \"type\": \"choice\",\n                    \"values\": [\n                        {\n                            \"value\": [\n                                {\n                                    \"lang\": \"eng\",\n                                    \"value\": \"english worlds\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f1\"\n                                },\n                                {\n                                    \"lang\": \"ar\",\n                                    \"value\": \"كلمات عربية\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f2\"\n                                }\n                            ],\n                            \"over_price\": 500,\n                            \"images\": [\n                                \"https://www.publicdomainpictures.net/pictures/110000/nahled/3d-letter-s.jpg\",\n                                \"https://www.publicdomainpictures.net/pictures/110000/nahled/3d-letter-s.jpg\",\n                                \"https://www.publicdomainpictures.net/pictures/110000/nahled/3d-letter-s.jpg\",\n                                \"https://www.publicdomainpictures.net/pictures/110000/nahled/3d-letter-s.jpg\"\n                            ]\n                        },\n                        {\n                            \"value\": [\n                                {\n                                    \"lang\": \"eng\",\n                                    \"value\": \"english worlds\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f3\"\n                                },\n                                {\n                                    \"lang\": \"ar\",\n                                    \"value\": \"كلمات عربية\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f4\"\n                                }\n                            ],\n                            \"over_price\": 200,\n                            \"images\": []\n                        }\n                    ]\n                },\n                {\n                    \"key\": [\n                        {\n                            \"lang\": \"eng\",\n                            \"value\": \"english worlds\",\n                            \"_id\": \"6602b3d10f85fdfe1d59c9f5\"\n                        },\n                        {\n                            \"lang\": \"ar\",\n                            \"value\": \"كلمات عربية\",\n                            \"_id\": \"6602b3d10f85fdfe1d59c9f6\"\n                        }\n                    ],\n                    \"type\": \"choice\",\n                    \"values\": [\n                        {\n                            \"value\": [\n                                {\n                                    \"lang\": \"eng\",\n                                    \"value\": \"english worlds\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f7\"\n                                },\n                                {\n                                    \"lang\": \"ar\",\n                                    \"value\": \"كلمات عربية\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f8\"\n                                }\n                            ],\n                            \"over_price\": 500,\n                            \"images\": []\n                        },\n                        {\n                            \"value\": [\n                                {\n                                    \"lang\": \"eng\",\n                                    \"value\": \"english worlds\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9f9\"\n                                },\n                                {\n                                    \"lang\": \"ar\",\n                                    \"value\": \"كلمات عربية\",\n                                    \"_id\": \"6602b3d10f85fdfe1d59c9fa\"\n                                }\n                            ],\n                            \"over_price\": 2020,\n                            \"images\": []\n                        }\n                    ]\n                }\n            ],\n            \"categories_path\": [\n                {\n                    \"key\": \"sasdqawde\"\n                }\n            ],\n            \"category\": {\n                \"_id\": \"65f6bd1d99aff305fffea848\",\n                \"name\": [\n                    {\n                        \"lang\": \"eng\",\n                        \"value\": \"BoMomnzer\",\n                        \"_id\": \"65f6bd1d99aff305fffea849\"\n                    },\n                    {\n                        \"lang\": \"ar\",\n                        \"value\": \"بو منذر\",\n                        \"_id\": \"65f6bd1d99aff305fffea84a\"\n                    }\n                ],\n                \"cover_image\": \"https://ecommerce.ssg-tech.info/images/1710669082638.jfif\",\n                \"parent_category\": \"65dc4e4e201f8ab3358499fb\",\n                \"props\": [],\n                \"__v\": 0\n            },\n            \"brand\": {\n                \"_id\": \"65c33c7dd10a0ccc880fea46\",\n                \"name\": [\n                    {\n                        \"lang\": \"eng\",\n                        \"value\": \"Adidas\",\n                        \"_id\": \"65c33c7dd10a0ccc880fea47\"\n                    },\n                    {\n                        \"lang\": \"ar\",\n                        \"value\": \"اديداس\",\n                        \"_id\": \"65c33c7dd10a0ccc880fea48\"\n                    }\n                ],\n                \"image\": \"https://ecommerce.ssg-tech.info/images/1707293819802.jpg\",\n                \"__v\": 0\n            },\n            \"createdAt\": \"2024-03-26T11:38:57.683Z\",\n            \"updatedAt\": \"2024-03-26T12:27:32.276Z\",\n            \"prop_key_have_image\": [\n                {\n                    \"lang\": \"eng\",\n                    \"value\": \"english worlds\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9ef\"\n                },\n                {\n                    \"lang\": \"ar\",\n                    \"value\": \"كلمات عربية\",\n                    \"_id\": \"6602b3d10f85fdfe1d59c9f0\"\n                }\n            ],\n            \"id\": \"6602b3d10f85fdfe1d59c9ea\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/6602b3d10f85fdfe1d59c9ea",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"6602b3d10f85fdfe1d59c9ea"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65c366675c57e1f519f4ea0d"
+								}
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "favorite",
+					"item": [
+						{
+							"name": "Update favorite",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profile/favorite/65e586c527288d5230b40290?favorite=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profile",
+										"favorite",
+										"65e586c527288d5230b40290"
+									],
+									"query": [
+										{
+											"key": "favorite",
+											"value": "true",
+											"description": "true or false"
+										}
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						},
+						{
+							"name": "Get my favorite products",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profile/favorite/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profile",
+										"favorite",
+										""
+									]
+								},
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update my profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"admin\",\r\n    \"phone_number\": \"0955588844\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profile",
+								""
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get my profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profile",
+								""
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/review?product=65e05249dd45088d99168587&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "65e05249dd45088d99168587"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/review/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65afa79586bcf431841b4bb0"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": \"6604108b04612e8d6f8b79f1\",\n    \"rate\": \"1\",\n    \"dec\": \"{{$randomLoremParagraph}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/review/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review",
+								""
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": \"sssd2342swdadsc4\",\n    \"user\": \"sssd2342swdadsc4\",\n    \"rate\": \"{{$randomInt}}\",\n    \"dec\": \"{{$randomLoremParagraph}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{route-name}}/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{route-name}}",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/review/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search by filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/search/by-filter/?page=1&limit=20&minPrice=1&maxPrice=1000",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"by-filter",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "minRate",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "e",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "1"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1000"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get related products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/search/related-product/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"related-product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65edaa78638795836fb2e7cd"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65afa79586bcf431841b4bb0"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

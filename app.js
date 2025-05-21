@@ -15,7 +15,7 @@ import errorHandler from "./app/utils/middleware/error.js";
 import router from "./app/routes/index.js";
 import task from "./app/utils/tasks/task.js";
 
-dotenv.config({ path: `./config.${process.env.NODE_ENV}.env` });
+dotenv.config()
 
 const app = express();
 
@@ -60,10 +60,7 @@ function initMiddleware() {
 }
 
 function initDatabase() {
-  const url = process.env.DATABASE.replace(
-    "<password>",
-    process.env.DATABASE_PASSWORD
-  );
+  const url = process.env.MONGODB_URI;
   mongoose
     .connect(url, {
       useNewUrlParser: true,

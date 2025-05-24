@@ -43,7 +43,7 @@ router.use("/guest", guest);
 //Add By Mohamad 
 router.use("/review", review);
 router.use(crudRoutes);
-router.use(authentication);// requaird token  
+// router.use(authentication);
 router.use("/analysis", analysis);
 router.use("/profile", profile);
 router.use("/order", order);

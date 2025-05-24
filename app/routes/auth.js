@@ -63,7 +63,7 @@ router.post("/forget-password", forgetPassword);
 router.post("/admin-login", adminLogin);
 router.post("/admin-signup", adminSignup);
 //add by Mohamad
-router.use(authentication);// requaird tiken  
+// router.use(authentication);
 router.delete("/delete-user", deleteUser)
 router.post("/change-Password", changePasswordUser);
 

@@ -3,11 +3,9 @@ import mongoose from "mongoose";
 import Prop from "./../models/prop.js";
 
 export function getToken(payload) {
-  return jwt.sign(payload, process.env.JWT,
-    {
-      expiresIn: process.env.USER_JWT_EXPIRE_DURATION,
-    }
-  );
+  return jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: process.env.USER_JWT_EXPIRE_DURATION,
+  });
 }
 
 export function generateOTP() {

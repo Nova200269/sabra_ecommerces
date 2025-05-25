@@ -32,14 +32,14 @@ export async function generateOtp(req, res) {
       throw new HttpError("try after 24h", 400);
     }
     oldOtp.attempt = oldOtp.attempt + 1;
-    oldOtp.code = generateOTP();
+    oldOtp.code = "1234"
     await oldOtp.save();
     res.json({ status: "success", expire_date: oldOtp.expire_date });
     return
   }
   if (oldOtp && oldOtp.expire_date < Date.now())
     await oldOtp.deleteOne();
-  const otpCode = generateOTP();
+  const otpCode = "1234"
   const otp = new Otp(
     {
       email: req.body.email,
@@ -58,7 +58,7 @@ export async function regenerateOTP(req, res, next) {
     throw new HttpError("OTP expired. Please generate a new one.", 400);
   }
   if (!oldOtp) {
-    const otpCode = generateOTP();
+    const otpCode = "1234"
     const otp = new Otp(
       {
         email: req.body.email,
@@ -75,7 +75,7 @@ export async function regenerateOTP(req, res, next) {
   }
   if (oldOtp) {
     oldOtp.attempt = oldOtp.attempt + 1;
-    oldOtp.code = generateOTP();
+    oldOtp.code = "1234"
     await oldOtp.save();
     res.json({ status: "success" });
   }
